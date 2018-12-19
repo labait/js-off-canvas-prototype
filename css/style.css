@@ -1,0 +1,57 @@
+html, body {
+  padding: 0;
+  margin: 0; }
+
+#menu {
+  background-color: #c00;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  right: -100vw;
+  transition: all 0.2s; }
+
+#menu.active {
+  right: 0; }
+
+.btn2 {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 15px;
+  right: 15px;
+  transition-duration: 0.2s;
+  z-index: 2; }
+  .btn2 .icon {
+    transition-duration: 0.2s;
+    position: absolute;
+    height: 8px;
+    width: 60px;
+    top: 30px;
+    background-color: #212121; }
+    .btn2 .icon:before {
+      transition-duration: 0.2s;
+      position: absolute;
+      width: 60px;
+      height: 8px;
+      background-color: #212121;
+      content: "";
+      top: -20px; }
+    .btn2 .icon:after {
+      transition-duration: 0.2s;
+      position: absolute;
+      width: 60px;
+      height: 8px;
+      background-color: #212121;
+      content: "";
+      top: 20px; }
+  .btn2.open .icon {
+    transition-duration: 0.2s;
+    background: transparent; }
+    .btn2.open .icon:before {
+      transform: rotateZ(45deg) scaleX(1.25) translate(13px, 13px); }
+    .btn2.open .icon:after {
+      transform: rotateZ(-45deg) scaleX(1.25) translate(12px, -12px); }
+  .btn2:hover {
+    cursor: pointer; }
+
+/*# sourceMappingURL=style.css.map */

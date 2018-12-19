@@ -1,0 +1,101 @@
+$spacer: 15px;
+$dark: #212121;
+$light: #efefef;
+$color: #b3e5fc;
+$transition_duration1: 0.2s;
+
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+#menu {
+  background-color: #c00;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  right: -100vw;
+  transition: all $transition_duration1;
+}
+
+#menu.active {
+  right: 0;
+}
+
+
+
+
+
+@mixin btn($top, $right) {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: $top;
+  right: $right;
+  transition-duration: $transition_duration1;
+  z-index: 2;
+}
+
+@mixin icon($height, $width) {
+  transition-duration: $transition_duration1;
+  position: absolute;
+  height: $height;
+  width: $width;
+  top: 30px;
+  background-color: $dark;
+}
+
+@mixin icon-before($height, $width, $top) {
+  transition-duration: $transition_duration1;
+  position: absolute;
+  width: $width;
+  height: $height;
+  background-color: $dark;
+  content: "";
+  top: $top;
+}
+
+@mixin icon-after($height, $width, $top) {
+  transition-duration: $transition_duration1;
+  position: absolute;
+  width: $width;
+  height: $height;
+  background-color: $dark;
+  content: "";
+  top: $top;
+}
+
+.btn2{
+  @include btn($spacer, $spacer);
+  
+  .icon {
+    @include icon(8px, 60px);
+    
+    &:before{
+      @include icon-before(8px, 60px, -20px);
+    }
+    
+    &:after{
+      @include icon-after(8px, 60px, 20px);
+    }
+  }
+  
+  &.open {
+    .icon {
+      transition-duration: $transition_duration1;
+      background: transparent;
+      
+      &:before{
+        transform: rotateZ(45deg) scaleX(1.25) translate(13px, 13px);
+      }
+
+      &:after{
+        transform: rotateZ(-45deg) scaleX(1.25) translate(12px, -12px);
+      }
+    }
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
